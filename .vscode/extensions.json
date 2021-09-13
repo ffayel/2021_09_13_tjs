@@ -1,0 +1,28 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+	// List of extensions which should be recommended for users of this workspace.
+	"recommendations": [
+		"formulahendry.auto-complete-tag",
+        "aeschli.vscode-css-formatter",
+        "clinyong.vscode-css-modules",
+        "dsznajder.es7-react-js-snippets",
+        "dbaeumer.vscode-eslint",
+        "walter-ribeiro.full-react-snippets",
+        "mhutchie.git-graph",
+        "ecmel.vscode-html-css",
+        "andys8.jest-snippets",
+        "skyran.js-jsx-snippets",
+        "gajesh1.react-js-snippet",
+        "eriklynd.json-tools",
+        "christian-kohler.path-intellisense",
+        "suming.react-proptypes-generate",
+        "hbenl.vscode-test-explorer",
+        "infeng.vscode-react-typescript"
+	],
+	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+	"unwantedRecommendations": [
+		
+	]
+}
