@@ -18,6 +18,13 @@
         box-shadow: 2px 2px 5px grey;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.Button>*{
+    vertical-align: middle;
+}
+
+.Button img{
+    max-height: 16px;
+}
 
 .Button-primary {
 	color: #fff;
