@@ -1,31 +1,39 @@
 import React from 'react';
-//import logo from './logo.svg';
+
 import './App.css';
 import Button from './components/Button/Button'
 
-function App() {
-  return (
-    <div className="App">
-      Hello word ! Demat breizh!
-      <hr/>
-      <Button bgColor="skyblue"
-      onClickEvent={(arg)=>{
-        console.trace(arg);
-      }}>
-        <img src="/img/ok.png" alt="ok"/>
-      </Button>
-      <Button 
-      bgColor="tomato" 
-      style={{textDecoration:'underline'}}
-      onClickEvent={(arg)=>{
-        console.error('il y a une erreur', arg);
-      }}>
-        <img src="/img/cancel.png" alt="cancel"/>
-        Cancel
-      </Button>
-      <Button/>
-    </div>
-  );
-}
+class App extends React.Component{
+  counter=0
+  render(){
+    return (
+      <div className="App">
+        Hello word ! Demat breizh!
+        <hr />
+        Valeur du counter : {this.counter}
+        <hr />
+        <Button bgColor="tomato"
+        onClickEvent={(arg)=>{
+         this.counter--;
+         this.logCounter();
+        }}>
+          Soustraction
+        </Button>
+        <Button 
+        bgColor="skyblue" 
+        style={{textDecoration:'underline'}}
+        onClickEvent={(arg)=>{
+          this.counter++;
+          this.logCounter();
+        }}>
+          Addition
+        </Button>
+      </div>
 
+    );
+  }
+  logCounter(){
+    console.log('value du counter', this.counter);
+  }
+}
 export default App;
