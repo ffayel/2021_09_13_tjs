@@ -5,12 +5,13 @@ import './Button.css'
 const Button=(props)=> {
     console.log(props);
     return (
-        <button className="Button Button-primary" type={props.type}>{props.children}</button>
+        <button className={props.classColor?'Button Button-primary':'Button'} type={props.type}>{props.children}</button>
     );
 }
 
 Button.propTypes={
     children:PropTypes.any.isRequired,
+    classColor: PropTypes.string,
 }
 Button.defaultProps={
     children: 'default button value',
