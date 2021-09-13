@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       Hello word ! Demat breizh!
       <hr/>
-      <Button />
+      <Button text="Ok" bgcolor="skyblue" />
     </div>
   );
 }
