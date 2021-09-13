@@ -5,17 +5,27 @@ import './Button.css'
 const Button=(props)=> {
     console.log(props);
     return (
-        <button className={props.classColor?'Button Button-primary':'Button'} type={props.type}>{props.children}</button>
+        <button 
+            className="Button" 
+            type={props.type}
+            style={{backgroundColor: props.bgColor, ...props.style}}
+            onClick={(eve)=>{
+                props.onClickEvent('bla bla');
+            }}
+            >{props.children}</button>
     );
 }
 
 Button.propTypes={
     children:PropTypes.any.isRequired,
-    classColor: PropTypes.string,
+    bgColor: PropTypes.string,
+    style: PropTypes.object,
+    onClickEvent: PropTypes.func.isRequired,
 }
 Button.defaultProps={
     children: 'default button value',
-    bgcolor: ''
+    bgColor: 'orange',
+    onClickEvent: ()=>{}
 }
 
 export default Button;

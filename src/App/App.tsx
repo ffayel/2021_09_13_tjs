@@ -8,10 +8,18 @@ function App() {
     <div className="App">
       Hello word ! Demat breizh!
       <hr/>
-      <Button bgcolor="skyblue" classColor="primary">
+      <Button bgColor="skyblue"
+      onClickEvent={(arg)=>{
+        console.trace(arg);
+      }}>
         <img src="/img/ok.png" alt="ok"/>
       </Button>
-      <Button bgcolor="skyblue" classColor="primary">
+      <Button 
+      bgColor="tomato" 
+      style={{textDecoration:'underline'}}
+      onClickEvent={(arg)=>{
+        console.log('il y a : '+arg);
+      }}>
         <img src="/img/cancel.png" alt="cancel"/>
         Cancel
       </Button>
