@@ -18,7 +18,7 @@ function App() {
       bgColor="tomato" 
       style={{textDecoration:'underline'}}
       onClickEvent={(arg)=>{
-        console.log('il y a : '+arg);
+        console.error('il y a : '+arg);
       }}>
         <img src="/img/cancel.png" alt="cancel"/>
         Cancel
