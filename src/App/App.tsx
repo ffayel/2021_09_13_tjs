@@ -15,6 +15,7 @@ function App() {
         <img src="/img/cancel.png" alt="cancel"/>
         Cancel
       </Button>
+      <Button/>
     </div>
   );
 }
