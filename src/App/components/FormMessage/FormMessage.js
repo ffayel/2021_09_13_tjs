@@ -24,7 +24,7 @@ const FormMessage = (props) => {
           }} />
         <UISelectUser value={formMessageState.destId} onChange={
           (evt) => {
-            setFormMessageState({...formMessageState, destId:evt.target.value})
+            setFormMessageState({...formMessageState, destId:Number(evt.target.value)})
           }} />
         <Button type='submit'>Envoyer</Button>
       </form>
