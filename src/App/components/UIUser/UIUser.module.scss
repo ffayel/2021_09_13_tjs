@@ -1,0 +1,13 @@
+.UIUser {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.UIUser img{
+    height: 40px;
+    border-radius: 100%;
+    border: 1px solid;
+}
+.UIUser .userNick {
+    padding: 2px 5px;
+}

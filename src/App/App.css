@@ -1,8 +1,6 @@
 .App{
   background-color: #282c34;
   color: tomato;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;

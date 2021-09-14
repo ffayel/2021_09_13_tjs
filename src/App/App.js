@@ -1,43 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react'
+import "./App.css";
+import TChat from './pages/TChat/TChat';
 
-import './App.css';
-import Button from './components/Button/Button'
-
-class App extends React.Component{
-  constructor(props)
-  {
-    super(props);
-    this.state = { counter:0, name:'FF' };
-  }
-  render(){
+class App extends Component {
+  render() {
     return (
       <div className="App">
-        Hello word ! Demat breizh!
-        <hr />
-        Valeur du counter : {this.state.counter}
-        <hr />
-        <Button bgColor="tomato"
-        onClickEvent={(arg)=>{
-         this.setState({counter:this.state.counter-1});
-         this.logCounter();
-        }}>
-          Soustraction
-        </Button>
-        <Button 
-        bgColor="skyblue" 
-        style={{textDecoration:'underline'}}
-        onClickEvent={(arg)=>{
-          this.setState({counter:this.state.counter+1});
-          this.logCounter();
-        }}>
-          Addition
-        </Button>
+        <TChat />
       </div>
-
-    );
-  }
-  logCounter(){
-    console.log('value du counter', this.state.counter);
+    )
   }
 }
 export default App;
