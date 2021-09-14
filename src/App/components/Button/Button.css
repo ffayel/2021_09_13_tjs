@@ -43,3 +43,6 @@
 	background-color: #0b5ed7;
 	border-color: #0a58ca;
 }
+.Button.clicked {
+    box-shadow: 2px 2px 5px green;
+}
