@@ -3,6 +3,10 @@
     text-align: left;
     margin-bottom: 5px;
 }
+
+.MessagesList:nth-of-type(even){
+    color: pink;
+}
 .UIMessage>*:nth-child(2){
     flex-grow: 1;
     padding-left: 5px;

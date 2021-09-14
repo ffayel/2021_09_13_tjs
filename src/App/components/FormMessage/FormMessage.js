@@ -2,16 +2,32 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormMessage.module.scss';
 import UISelectUser from '../UISelectUser/UISelectUser';
+import MessageInput from '../MessageInput/MessageInput';
+import Button from '../Button/Button';
 
-export const formMessageInitialState = {}
+export const formMessageInitialState = {
+  text: '',
+  usr: 0,
+}
 
 const FormMessage = (props) => {
   const [formMessageState, setFormMessageState] = useState(formMessageInitialState);
   return (
     <div className={styles.FormMessage} data-testid="FormMessage">
-      <input type='text' />
-      <UISelectUser/>
-      <input type='submit' />
+      {JSON.stringify(formMessageState)}
+      <form onSubmit={(evt) => {
+        evt.preventDefault();
+      }}>
+        <MessageInput value={formMessageState.text} onChange={
+          (evt) => {
+            setFormMessageState({...formMessageState, text:evt.target.value})
+          }} />
+        <UISelectUser value={formMessageState.usr} onChange={
+          (evt) => {
+            setFormMessageState({...formMessageState, usr:evt.target.value})
+          }} />
+        <Button type='submit'>Envoyer</Button>
+      </form>
     </div>
   )
 };

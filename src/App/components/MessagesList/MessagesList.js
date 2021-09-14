@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 
 export const messagesListInitialState = [
   {
-    id: 1,
+    id: 0,
     text: 'blabalba',
     dateTime: new Date(),
     userId: 0,

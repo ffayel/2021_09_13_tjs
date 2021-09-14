@@ -4,7 +4,7 @@ import styles from './UISelectUser.module.scss';
 import { userListInitialState } from '../UserList/UserList';
 
 const UISelectUser = (props) => (
-  <select className={styles.UISelectUser} data-testid="UISelectUser" onChange={props.onChange}>
+  <select className={styles.UISelectUser} data-testid="UISelectUser" onChange={props.onChange} value={props.value}>
     {
       props.users.map((e, i) => <option value={e.id} key={`opt-usr-${i}`}>{e.nick}</option>)
     }
@@ -12,6 +12,7 @@ const UISelectUser = (props) => (
 );
 
 UISelectUser.propTypes = {
+  value: PropTypes.string,
   users: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 };

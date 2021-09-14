@@ -1,7 +1,10 @@
-.FormMessage {
+.FormMessage{
+    padding: 10px 10px;
+}
+.FormMessage form {
     display: flex;
 }
-.FormMessage>*:nth-child(1){
+.FormMessage form>*:nth-child(1){
     flex-grow: 1;
     padding-left: 5px;
 }
