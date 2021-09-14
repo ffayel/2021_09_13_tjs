@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 
 export const formMessageInitialState = {
   text: '',
-  usr: 0,
+  destId: 2,
 }
 
 const FormMessage = (props) => {
@@ -22,9 +22,9 @@ const FormMessage = (props) => {
           (evt) => {
             setFormMessageState({...formMessageState, text:evt.target.value})
           }} />
-        <UISelectUser value={formMessageState.usr} onChange={
+        <UISelectUser value={formMessageState.destId} onChange={
           (evt) => {
-            setFormMessageState({...formMessageState, usr:evt.target.value})
+            setFormMessageState({...formMessageState, destId:evt.target.value})
           }} />
         <Button type='submit'>Envoyer</Button>
       </form>

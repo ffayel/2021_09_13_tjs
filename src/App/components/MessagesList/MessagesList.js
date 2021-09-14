@@ -17,7 +17,7 @@ export const messagesListInitialState = [
     }
   },
   {
-    id: 2,
+    id: 1,
     text: 'text 2',
     dateTime: new Date(),
     userId: 0,
