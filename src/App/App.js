@@ -4,17 +4,21 @@ import './App.css';
 import Button from './components/Button/Button'
 
 class App extends React.Component{
-  counter=0
+  constructor(props)
+  {
+    super(props);
+    this.state = { counter:0, name:'FF' };
+  }
   render(){
     return (
       <div className="App">
         Hello word ! Demat breizh!
         <hr />
-        Valeur du counter : {this.counter}
+        Valeur du counter : {this.state.counter}
         <hr />
         <Button bgColor="tomato"
         onClickEvent={(arg)=>{
-         this.counter--;
+         this.setState({counter:this.state.counter-1});
          this.logCounter();
         }}>
           Soustraction
@@ -23,7 +27,7 @@ class App extends React.Component{
         bgColor="skyblue" 
         style={{textDecoration:'underline'}}
         onClickEvent={(arg)=>{
-          this.counter++;
+          this.setState({counter:this.state.counter+1});
           this.logCounter();
         }}>
           Addition
@@ -33,7 +37,7 @@ class App extends React.Component{
     );
   }
   logCounter(){
-    console.log('value du counter', this.counter);
+    console.log('value du counter', this.state.counter);
   }
 }
 export default App;
