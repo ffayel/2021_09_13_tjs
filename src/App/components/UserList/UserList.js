@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import styles from './UserList.module.scss';
 import UIUser from '../UIUser/UIUser';
+import store from '../../store/store';
 
 export const userListInitialState = [
   {
@@ -17,6 +18,10 @@ export const userListInitialState = [
 
 const UserList = () => {
   const [userListState, setUserListState] = useState(userListInitialState);
+  store.subscribe(() => {
+    setUserListState(store.getState().users);
+  })
+
   return (
     <div className={styles.UserList} data-testid="UserList">
       <h2>UserList</h2>

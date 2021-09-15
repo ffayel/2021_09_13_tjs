@@ -2,11 +2,12 @@ import { createStore } from 'redux'
 import * as REST_CONFIG from "../config/config";
 
 //etat initial pour reprise par les composants pouir calque des etats initiaux locaux
-export const initialState = { messages: [], user: [], lastMessageId:0};
+export const initialState = { messages: [], users: [], lastMessageId: 0 };
 //action public diffusables
 export const ACTIONS = Object.freeze({
     SET_MESSAGES: 'SET_MESSAGES',
     ADD_MESSAGES: 'ADD_MESSAGES',
+    SAVE_MESSAGE: 'SAVE_MESSAGE',
     SET_USERS: 'SET_USERS'
 });
 //actions privee au document
@@ -26,34 +27,63 @@ function reducers(state = initialState, action) {
                         store.dispatch({ type: ACTIONS.SET_USERS, values: arr });
                         return arr;
                     })
-            }, 1000
+            }, 10000
             );
 
             setInterval(() => {
-                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?id_gte=' + store.getState().lastMessageId+1, { method: 'GET' })
+                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?_expand=user&id_gte=' + store.getState().lastMessageId + 1, { method: 'GET' })
                     .then(flux => flux.json())
                     .then(arr => {
                         let lastId = store.getState().lastMessageId;
                         arr.map(element => {
-                           if(lastId < element.id) lastId = element.id; 
-                           return null;
+                            if (lastId < element.id) lastId = element.id;
+                            return null;
                         });
                         store.dispatch({ type: ACTIONS.ADD_MESSAGES, values: arr, maxId: lastId });
                         return arr;
                     })
-            }, 1000
+            }, 5000
             );
 
             return state;
-            case ACTIONS.SET_MESSAGES: return { ...state, messages: action.values }; // on copy le contenu de state et on ajoute messages
-            case ACTIONS.ADD_MESSAGES: return {
-                 ...state, 
-                 messages: [...state.messages, ...action.values],
-                 lastMessageId: action.maxId }; // on copy le contenu de state et on ajoute messages
-            case ACTIONS.SET_USERS: return { ...state, users: action.values };
+
+        case ACTIONS.SET_MESSAGES: return { ...state, messages: action.values }; // on copy le contenu de state et on ajoute messages
+        case ACTIONS.ADD_MESSAGES: return {
+            ...state,
+            messages: [...state.messages, ...action.values],
+            lastMessageId: action.maxId
+        }; // on copy le contenu de state et on ajoute messages
+        case ACTIONS.SAVE_MESSAGE:
+            fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages,
+                {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(action.value)
+                })
+            return state;
+        case ACTIONS.SET_USERS: return { ...state, users: action.values };
         default: return state;
     }
 }
+// snippet creation reducer : rxreducer
+const modalInitialState = {
+    isShown: false,
+    content: null
+}
+
+const modalReducer (state = modalInitialState, action) => {
+    switch (action.type) {
+
+        case typeName:
+            return { ...state, ...payload }
+
+        default:
+            return state
+    }
+}
+
 
 //let state = reducers(undefined, { type: PRIVATE_ACTIONS.INIT });
 //console.log(state);

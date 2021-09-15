@@ -2,6 +2,7 @@
 # LIENS 
 
 * learn git branching : https://learngitbranching.js.org/?locale=fr_FR
+* Generateur de template : https://github.com/arminbro/generate-react-cli
 * repos generate react cli model a forker (react native) : https://github.com/champix56/react-native-template
 * CSS, apprendre les nouveauté CCS3  : https://flukeout.github.io/
 * storybooks for react documentation : https://storybook.js.org/
@@ -12,6 +13,7 @@
 * React Developer Tools : visualisation de la structure react
 * Store state REDUX : https://redux.js.org/faq/general/#when-should-i-use-redux
 * explication store: https://www.wanadev.fr/205-react-js-3-gerer-vos-donnees-dans-des-stores-natifs/
+* Docs en ligne : https://devdocs.io/
 
 
 # COMMANDE UTILES :
@@ -46,3 +48,5 @@ creation de constantes imutable : Object.freeze / Object.seal
 
 
 install store : `npm install --save redux `
+
+console.startTime

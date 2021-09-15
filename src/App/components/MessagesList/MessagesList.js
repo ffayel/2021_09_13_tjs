@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './MessagesList.module.scss';
 import UIMessage from '../UIMessage/UIMessage';
 import Moment from 'react-moment';
+import store from '../../store/store';
 
 export const messagesListInitialState = [
   {
@@ -31,6 +32,10 @@ export const messagesListInitialState = [
 
 const MessagesList = (props) => {
   const [messagesListState, setMessagesListState] = useState(messagesListInitialState);
+  store.subscribe(() => {
+    setMessagesListState(store.getState().messages);
+  })
+
   return (
     <div className={styles.MessagesList} data-testid="MessagesList">
       <h2>MessagesList</h2>
