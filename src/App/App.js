@@ -9,15 +9,19 @@ class App extends Component {
     this.state = { users: [], messages: [] }
   }
   componentDidMount() {
+    this.getUserFromServer();
     setInterval(() => {
-      fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.users, { method: 'GET' })
-        .then(flux => flux.json())
-        .then(arr => {
-          this.setState({ users: arr });
-          return arr;
-        })
-    }, 5000
+      this.getUserFromServer();
+    }, 10000
     );
+  }
+  getUserFromServer(){
+    fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.users, { method: 'GET' })
+    .then(flux => flux.json())
+    .then(arr => {
+      this.setState({ users: arr });
+      return arr;
+    })
   }
   render() {
     return (
