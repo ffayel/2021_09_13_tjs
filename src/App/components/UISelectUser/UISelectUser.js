@@ -12,7 +12,7 @@ const UISelectUser = (props) => (
 );
 
 UISelectUser.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   users: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 };

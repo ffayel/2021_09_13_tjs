@@ -43,3 +43,6 @@ recuperation d'un serveur REST : `npm i -s json-server`
 Analogie entre les bistros et les WS REST et SOAP
 
 creation de constantes imutable : Object.freeze / Object.seal
+
+
+install store : `npm install --save redux `
