@@ -15,7 +15,7 @@ const UserList = () => {
   return (
     <div className={styles.UserList} data-testid="UserList">
       <h2>UserList</h2>
-      <div style={{ height: '100vh', overflowY: 'scroll' }}>
+      <div style={{ height: 'calc(100% - 40px)', overflowY: 'scroll' }}>
         {
           userListState.map((e, i) => <UIUser user={e} key={`usr-${i}`} />)
         }

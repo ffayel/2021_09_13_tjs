@@ -51,3 +51,6 @@ creation de constantes imutable : Object.freeze / Object.seal
 install store : `npm install --save redux `
 
 console.startTime
+
+
+ajout des route : `npm i react-router-dom`

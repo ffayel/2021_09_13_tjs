@@ -5,17 +5,21 @@ import UISelectUser from '../UISelectUser/UISelectUser';
 import MessageInput from '../MessageInput/MessageInput';
 import Button from '../Button/Button';
 import store, { ACTIONS, initialState } from '../../store/store';
+import {useParams} from 'react-router-dom';
 
 export const formMessageInitialState = {
   text: '',
-  destId: 2,
+  destId: -1,
   userId: 0,
 }
 
 const FormMessage = (props) => {
   const [formMessageState, setFormMessageState] = useState(formMessageInitialState);
   const [userListState, setUserListState] = useState(initialState.users);
+
+  const userParam = Number(useParams().id);
   useEffect(() => { // permet de gerer le chargement du composant
+    setFormMessageState({...formMessageState, userId:userParam})
     store.subscribe(() => {
       setUserListState(store.getState().tchat.users);
     })
@@ -25,7 +29,11 @@ const FormMessage = (props) => {
       {JSON.stringify(formMessageState)}
       <form onSubmit={(evt) => {
         evt.preventDefault();
+        if(formMessageState.destId){
         store.dispatch({type: ACTIONS.SAVE_MESSAGE, value: {...formMessageState, date: new Date().toString()}})
+        }else{
+          alert('pas de user')
+        }
       }}>
         <MessageInput value={formMessageState.text} onChange={
           (evt) => {

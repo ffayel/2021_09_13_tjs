@@ -46,7 +46,7 @@ const MessagesList = (props) => {
   return (
     <div className={styles.MessagesList} data-testid="MessagesList">
       <h2>MessagesList</h2>
-      <div style={{ height: '100vh', overflowY: 'scroll' }}>
+      <div style={{ height: 'calc(100% - 40px)', overflowY: 'scroll' }}>
         {
           messagesListState.map((e, i) => {
             const uu = usersListState.find((u) => e.userId === u.id) // gestion du chargement des users a posteriorie
