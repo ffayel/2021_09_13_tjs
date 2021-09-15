@@ -31,7 +31,7 @@ function reducers(state = initialState, action) {
             );
 
             setInterval(() => {
-                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?id_gte=' + store.getState().tchat.lastMessageId + 1, { method: 'GET' })
+                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?id_gte=' + (store.getState().tchat.lastMessageId+1), { method: 'GET' })
                     .then(flux => flux.json())
                     .then(arr => {
                         let lastId = store.getState().tchat.lastMessageId;

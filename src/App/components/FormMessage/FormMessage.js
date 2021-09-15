@@ -4,11 +4,12 @@ import styles from './FormMessage.module.scss';
 import UISelectUser from '../UISelectUser/UISelectUser';
 import MessageInput from '../MessageInput/MessageInput';
 import Button from '../Button/Button';
-import store, { initialState } from '../../store/store';
+import store, { ACTIONS, initialState } from '../../store/store';
 
 export const formMessageInitialState = {
   text: '',
   destId: 2,
+  userId: 0,
 }
 
 const FormMessage = (props) => {
@@ -24,6 +25,7 @@ const FormMessage = (props) => {
       {JSON.stringify(formMessageState)}
       <form onSubmit={(evt) => {
         evt.preventDefault();
+        store.dispatch({type: ACTIONS.SAVE_MESSAGE, value: {...formMessageState, date: new Date().toString()}})
       }}>
         <MessageInput value={formMessageState.text} onChange={
           (evt) => {

@@ -8,7 +8,7 @@ const UIMessage = (props) => (
   <div className={styles.UIMessage} data-testid="UIMessage">
     <img src={props.message.user.img} alt={props.message.user.nick}/>
     <div>
-      <div className={styles.messageHeader}> <Moment format="YYYY/MM/DD hh:mm" date={props.message.dateTime}/></div>
+      <div className={styles.messageHeader}> <Moment format="DD/MM/YYYY hh:mm" date={props.message.dateTime}/></div>
       <div className={styles.messageText}>{props.message.text}</div>
     </div>
   </div>
