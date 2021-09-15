@@ -7,12 +7,17 @@
 * storybooks for react documentation : https://storybook.js.org/
 * Realisation de maquettes : https://github.com/React-Proto/react-proto
 * site de book gratuit : https://ww2.bookys-ebooks.com/livres/new
-
+* Validation de JSON : https://json-schema.org/
+* outil chrome YARC : appel http similaire a postman
+* React Developer Tools : visualisation de la structure react
+* Store state REDUX : https://redux.js.org/faq/general/#when-should-i-use-redux
+* explication store: https://www.wanadev.fr/205-react-js-3-gerer-vos-donnees-dans-des-stores-natifs/
 
 
 # COMMANDE UTILES :
-creation de l'app : npx create-react-app app
+creation de l'app : `npx create-react-app app`
 
+```
 npx generate-react-cli
 ? Does this project use TypeScript? No
 ? Does this project use CSS modules? Yes
@@ -23,12 +28,18 @@ npx generate-react-cli
 ? Would you like to create a corresponding test file with each component you generate? Yes
 ? Would you like to create a corresponding story with each component you generate? No
 ? Would you like to create a corresponding lazy file (a file that lazy-loads your component out of the box and enables code splitting: https://reactjs.org/docs/code-splitting.html#code-splitting) with each component you generate? No
+```
 
 
 
 
 
+generation des deux composant (messageInput flexContainer) : `npx generate-react-cli c messageInput flexContainer`
 
-generation des deux composant (messageInput flexContainer) : npx generate-react-cli c messageInput flexContainer
+ajout du composant sass dnas le projet : `npm i -s node-sass`
 
-ajout du composant sass dnas le projet : npm i -s node-sass
+recuperation d'un serveur REST : `npm i -s json-server`
+
+Analogie entre les bistros et les WS REST et SOAP
+
+creation de constantes imutable : Object.freeze / Object.seal
