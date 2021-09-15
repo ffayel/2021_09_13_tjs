@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './UISelectUser.module.scss';
-import { userListInitialState } from '../UserList/UserList';
 
 const UISelectUser = (props) => (
   <select className={styles.UISelectUser} data-testid="UISelectUser" onChange={props.onChange} value={props.value}>
@@ -18,7 +17,6 @@ UISelectUser.propTypes = {
 };
 
 UISelectUser.defaultProps = {
-  users: userListInitialState,
   onChange: () => { }
 };
 

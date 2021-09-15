@@ -22,7 +22,7 @@ const FormMessage = (props) => {
           (evt) => {
             setFormMessageState({...formMessageState, text:evt.target.value})
           }} />
-        <UISelectUser value={formMessageState.destId} onChange={
+        <UISelectUser users={props.users} value={formMessageState.destId} onChange={
           (evt) => {
             setFormMessageState({...formMessageState, destId:Number(evt.target.value)})
           }} />
