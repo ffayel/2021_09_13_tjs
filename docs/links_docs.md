@@ -14,6 +14,7 @@
 * Store state REDUX : https://redux.js.org/faq/general/#when-should-i-use-redux
 * explication store: https://www.wanadev.fr/205-react-js-3-gerer-vos-donnees-dans-des-stores-natifs/
 * Docs en ligne : https://devdocs.io/
+* oiu trouver les hook possible : https://fr.reactjs.org/docs/hooks-reference.html
 
 
 # COMMANDE UTILES :

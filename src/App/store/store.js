@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { combineReducers, createStore } from 'redux'
 import * as REST_CONFIG from "../config/config";
 
 //etat initial pour reprise par les composants pouir calque des etats initiaux locaux
@@ -31,10 +31,10 @@ function reducers(state = initialState, action) {
             );
 
             setInterval(() => {
-                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?_expand=user&id_gte=' + store.getState().lastMessageId + 1, { method: 'GET' })
+                fetch(REST_CONFIG.ADR_REST + REST_CONFIG.RESSOURCES.messages + '?id_gte=' + store.getState().tchat.lastMessageId + 1, { method: 'GET' })
                     .then(flux => flux.json())
                     .then(arr => {
-                        let lastId = store.getState().lastMessageId;
+                        let lastId = store.getState().tchat.lastMessageId;
                         arr.map(element => {
                             if (lastId < element.id) lastId = element.id;
                             return null;
@@ -73,34 +73,22 @@ const modalInitialState = {
     content: null
 }
 
-const modalReducer (state = modalInitialState, action) => {
+const modalReducer = (state = modalInitialState, action) => {
     switch (action.type) {
 
-        case typeName:
-            return { ...state, ...payload }
-
+        case 'SHOW': return { ...state, isShown: true, content: action.value }
+        case 'HIDE': return { ...state, isShown: true, content: null }
         default:
             return state
     }
 }
 
-
-//let state = reducers(undefined, { type: PRIVATE_ACTIONS.INIT });
-//console.log(state);
-
-//state = reducers(state, { type: ACTIONS.SET_MESSAGES, values: [{ id: 0}, { id: 1 }] });
-//console.log(state);
-//state = reducers(state, { type: ACTIONS.SET_USERS, values: [{ id: 2}, { id: 3 }] });
-//console.log(state);
-
-const store = createStore(reducers);
+const store = createStore( combineReducers({tchat: reducers, modal: modalReducer}) );
 
 store.subscribe(() => {
     console.warn(store.getState());
 })
 
 store.dispatch({ type: PRIVATE_ACTIONS.INIT });
-//store.dispatch({ type: ACTIONS.SET_MESSAGES, values: [{ id: 0 }, { id: 1 }] });
-//store.dispatch({ type: ACTIONS.SET_USERS, values: [{ id: 2 }, { id: 3 }] });
 
 export default store;

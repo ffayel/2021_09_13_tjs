@@ -18,7 +18,6 @@ UISelectUser.propTypes = {
 };
 
 UISelectUser.defaultProps = {
-  users: userListInitialState,
   onChange: () => { }
 };
 
