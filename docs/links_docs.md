@@ -54,3 +54,6 @@ console.startTime
 
 
 ajout des route : `npm i react-router-dom`
+
+https://marmelab.com/react-admin/Tutorial.html#setting-up
+Ajout de react admin : `npm i react-admin ra-data-json-server`
